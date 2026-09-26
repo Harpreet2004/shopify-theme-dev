@@ -3,12 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Lucky</title>
+    <title>This is title</title>
     {{ content_for_header }}
 </head>
 <body>
-    <header><p>My store name is Web Lucky.</p></header>
+    <header>
+        {% sections "header-group" %}
+    </header>
     <main>{{ content_for_layout }}</main>
-    <footer><p>Copyright 2026. Web Lucky</p></footer>
+    <footer>
+        {% sections 'footer-group' %}
+    </footer>
 </body>
 </html>

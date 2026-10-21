@@ -1,5 +1,5 @@
 {% style %}
-    {{ settings.body_font | font_face: font_display: "swap" }};
+    {{ settings.body_font | font_face: font_display: "swap" }}
     {{ settings.heading_font | font_face: font_display: "swap" }}
   :root {
     --page-width: {{ settings.page_width | divided_by: 16.0 }}rem;
@@ -11,5 +11,6 @@
     --heading-font: {{ settings.heading_font.family }}, {{ settings.heading_font.fallback_families }};
     --heading-font-weight: {{ settings.heading_font.weight }};
     --heading-font-style: {{ settings.heading_font.style }};
+    --font-size-base: 1rem;
   }
 {% endstyle %}

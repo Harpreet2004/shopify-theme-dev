@@ -9,19 +9,20 @@
  */
 {
   "current": {
-    "page_width": 1000,
+    "page_width": 1160,
     "page_padding_mobile": 10,
     "page_padding_desktop": 80,
-    "heading_font": "roboto_n4",
-    "body_font": "aleo_n7",
+    "heading_font": "alegreya_sans_n7",
+    "body_font": "sans_serif_n4",
+    "content_for_index": []
   },
   "presets": {
     "Default": {
- "page_width": 1000,
-    "page_padding_mobile": 10,
-    "page_padding_desktop": 80,
-    "heading_font": "roboto_n4",
-    "body_font": "aleo_n7",
+      "page_width": 1000,
+      "page_padding_mobile": 10,
+      "page_padding_desktop": 80,
+      "heading_font": "roboto_n4",
+      "body_font": "aleo_n7"
     }
   }
 }

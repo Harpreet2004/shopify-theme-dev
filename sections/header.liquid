@@ -1,1 +1,92 @@
-<h1>{{ shop.name }}</h1>
+{%- 
+    liquid
+    assign menu = section.settings.menu
+-%}
+
+<div class="page-width ">
+<nav class="menu-wrapper">
+    <ul class="menu-container flex-wrap">
+        {% for link in menu.links %}
+            {% if link.links != blank %}
+                <li>
+                    <details class="dropdown-list">
+                    <summary>
+                        {{ link.title }}
+                        <span>icon 1</span>
+                         </summary>
+               
+                        <ul class="sub-menu">
+                            {% for child in link.links %}
+                                {%  if child.links != blank %}
+                                    <li>
+                                        <details class="dropdown-list dropdown-nested">
+                                            <summary>
+                                                {{ child.title }}
+                                                <span>icon 2</span>
+                                            </summary>
+                                            <ul class="sub-menu sub-menu--flyout">
+                                                {% for grand_child in child.links %}
+                                                  <li>{{ grand_child.title | link_to: grand_child.url }}</li>
+                                                {% endfor %}
+                                                {% for grand_child in child.links %}
+                                                  <li>{{ grand_child.title | link_to: grand_child.url }}</li>
+                                                {% endfor %}
+                                            </ul>
+                                        </details>
+                                    </li>
+                                {% else %}
+                                    <li>{{ child.title | link_to: child.url }} </li>
+                                {% endif %}
+                              
+                            {% endfor %}
+                        </ul>
+                    </details>
+                </li>
+            {% else %}
+                <li>{{ link.title | link_to: link.url }}</li>
+            {% endif %}
+          
+        {% endfor %}
+    </ul>
+</nav>
+</div>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const primaryNav = document.querySelector(".menu-wrapper");
+    
+        if(primaryNav) {
+
+        function closeAllDropdowns(){
+            const dropDowns = primaryNav.querySelectorAll(".dropdown-list[open]");
+            dropDowns.forEach((e) => {
+                e.open = false;
+            })
+
+        }
+
+        document.addEventListener("keydown", (e) => {
+            if(e.key !== "Escape") return;
+            closeAllDropdowns()
+        })
+
+        document.addEventListener("click", (e) => {
+            if(!primaryNav.contains(e.target)) closeAllDropdowns();
+            
+        })
+        }
+    })
+
+</script>
+{% schema %}
+ {
+    "name": "Header",
+    "tag": "section",
+    "settings": [{
+        "type": "link_list",
+        "id": "menu",
+        "label": "Select Menu"
+    }]
+ }
+{% endschema %}

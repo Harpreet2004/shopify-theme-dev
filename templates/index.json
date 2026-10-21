@@ -15,7 +15,11 @@
     },
     "hero-banner": {
       "type": "hero-banner",
-      "settings": {}
+      "settings": {
+        "heading_text": "Heading Text",
+        "description_text": "Description Text",
+        "full_width_section": true
+      }
     }
   },
   "order": [

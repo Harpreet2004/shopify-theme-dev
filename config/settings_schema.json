@@ -56,7 +56,7 @@
                 "type": "font_picker",
                 "id": "body_font",
                 "label": "Body Font",
-                "default": "aleo_n7"
+                "default": "roboto_n4"
             }
         ]
     }
